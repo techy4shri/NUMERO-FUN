@@ -19,7 +19,7 @@ def get_sum(n):
 # numerology function
 
 
-def numero_uno(name):
+def numero_uno(input_name):
     """
     Function for calculating the numerology of a name
     """
@@ -53,7 +53,7 @@ def numero_uno(name):
     }
     sumi = 0
     carr = 0
-    for i in name:
+    for i in input_name:
         print(i)
         if alpha_dict[i] >= 9:
             if alpha_dict[i] > 9:
