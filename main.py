@@ -1,6 +1,8 @@
 """
 making a numerology game
 using modular arithmetic for letter-to-number conversion
+
+This file is just for testing purposes. The old but starting point of this all
 """
 
 def letter_to_number(letter):
