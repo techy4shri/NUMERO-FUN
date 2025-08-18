@@ -18,7 +18,6 @@ def get_sum(n):
 
 # numerology function
 
-
 def numero_uno(input_name):
     """
     Function for calculating the numerology of a name

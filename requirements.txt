@@ -1,0 +1,13 @@
+numerology-cli
+├── src
+│   ├── __init__.py
+│   ├── calculator.py
+│   ├── constants.py
+│   └── cli.py
+├── tests
+│   ├── __init__.py
+│   └── test_calculator.py
+├── requirements.txt
+├── setup.py
+├── .gitignore
+└── README.md
