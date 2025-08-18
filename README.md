@@ -32,7 +32,7 @@ This project is a command-line interface (CLI) tool for calculating the numerolo
 
 ## Installation
 
-### From PyPI
+### From PyPI (not done yet!!!)
 ```bash
 pip install numero-fun
 ```
@@ -46,7 +46,14 @@ pip install .
 
 ## Usage
 
-There are three ways to use this tool:
+There are four ways to use this tool:
+
+### Development Version
+```bash
+git clone https://github.com/techy4shri/Numero-Fun.git
+cd Numero-Fun
+pip install -e .
+```
 
 ### 1. Command Line Tool (Recommended)
 ```bash
@@ -62,8 +69,8 @@ python -m numero_fun.cli
 ```python
 from numero_fun import calculate_number
 
-result = calculate_number("john")
-print(result)  # Output: 2
+result = calculate_number("shri")
+print(result)
 ```
 
 ### Example Output

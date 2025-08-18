@@ -66,8 +66,13 @@ def main():
         result = calculate_number(name)
         display_fancy_result(console, name, result)
 
-        if Prompt.ask("\n[italic] Would you like to try another name?[/]", 
-                     choices=["y", "n"], default="y") != "y":
+        response = Prompt.ask(
+            "\n[italic] Would you like to try another name?[/]", 
+            choices=["y", "Y", "n", "N"], 
+            default="y"
+        ).lower()
+        
+        if response in ["n", "no"]:
             break
     
     console.print(f"\n[bold purple]{BORDER_LINE}[/]")
