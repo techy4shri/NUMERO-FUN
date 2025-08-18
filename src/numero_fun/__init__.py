@@ -2,7 +2,7 @@
 Numero Uno - A Fun Number Game and Numerology Calculator
 """
 
-from numero_fun.calculator import calculate_number, letter_to_number, get_sum
+from .calculator import calculate_number, letter_to_number, get_sum
 
 __version__ = "0.1.0"
 __author__  = "Garima Shrivastava"

@@ -22,7 +22,7 @@ pip install -r requirements.txt
 To use the CLI tool, run the following command:
 
 ```
-python -m src.cli
+python -m numero_fun.cli
 ```
 
 You will be prompted to enter a name, and the tool will calculate and display the numerology of that name.
@@ -33,4 +33,4 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the GPL-3.0 License.

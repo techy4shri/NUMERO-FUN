@@ -1,6 +1,5 @@
 """Command-line interface for numero-fun"""
 
-from turtle import width
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
