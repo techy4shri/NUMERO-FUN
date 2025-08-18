@@ -105,4 +105,4 @@ Contributions are welcome! Please feel free to:
 
 ## License
 
-This project is licensed under the GPL-3.0 Licence , more info in [LICENCE.md]()
+This project is licensed under the GPL-3.0 Licence , more info in [LICENCE.md](https://github.com/techy4shri/NUMERO-FUN/blob/main/LICENSE)
