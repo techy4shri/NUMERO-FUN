@@ -19,7 +19,8 @@
         │└─┐  ├─┤├┤ ├┬┘├┤ │
         ┴└─┘  ┴ ┴└─┘┴└─└─┘o
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-This project is a command-line interface (CLI) tool for calculating the numerology of a name. It uses a predefined mapping of letters to their corresponding numerology values to perform the calculations.
+This project is a command-line interface (CLI) tool for calculating the numerology of a name.
+I started this with dictionary and OOPS concepts, as a practice but since the dictionary was getting quite long (and kinda annoying), I replaced it with a tiny modulo maths. :D
 
 ## Features
 
@@ -46,7 +47,7 @@ You will be prompted to enter a name, and the tool will calculate and display th
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue.
+Contributions are welcome! Please feel free to submit a pull request for different numerological calculation logics or open an issue if the current features don't work!
 
 ## License
 
