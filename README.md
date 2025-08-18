@@ -74,8 +74,8 @@ print(result)  # Output: 2
 
 Enter a name to calculate its numeral: john
 ╭──────────────────────────────────────────────────╮
-│ Name: john                                       │
-│ Your Number: 2                                   │
+│ Name: garima                                     │
+│ Your Number: 4                                   │
 ╰──────────────────────────────────────────────────╯
 ```
 
@@ -105,4 +105,4 @@ Contributions are welcome! Please feel free to:
 
 ## License
 
-This project is licensed under the GPL-
+This project is licensed under the GPL-3.0 Licence , more info in [LICENCE.md]()
