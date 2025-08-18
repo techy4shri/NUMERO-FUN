@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "numero-fun"
+version = "0.1.0"
+description = "A CLI tool for calculating numerology of names"
+readme = "README.md"
+authors = [{ name = "Garima Shrivastava" }]
+license = { text = "GPL-3.0" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+keywords = ["numerology", "cli", "calculator"]
+dependencies = [
+    "rich>=13.0.0",
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/techy4shri/Numero-Fun"
+Issues = "https://github.com/techy4shri/Numero-Fun/issues"
+
+[project.scripts]
+numero-fun = "numero_fun.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test"]
+python_functions = ["test_*"]
+addopts = "-v -ra -q"
