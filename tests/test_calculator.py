@@ -22,6 +22,6 @@ def test_get_sum():
 
 def test_calculate_number():
     assert calculate_number('john') == 2  # j(1)+o(6)+h(8)+n(5)=20 -> 2+0=2
-    assert calculate_number('doe') == 9   # d(4)+o(6)+e(5)=15 -> 1+5=6
-    assert calculate_number('john doe') == 2
+    assert calculate_number('doe') == 6   # d(4)+o(6)+e(5)=15 -> 1+5=6
+    assert calculate_number('john doe') == 8
     assert calculate_number('JOHN') == 2  # Should work with uppercase too
