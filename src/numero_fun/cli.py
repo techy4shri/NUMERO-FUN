@@ -60,6 +60,15 @@ def display_fancy_result(console, name, result, method):
     """)
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
 
+def show_license_info():
+    """Display license information when starting in interactive mode"""
+    print("""
+Numero-Fun  Copyright (C) 2024  Garima Shrivastava
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c' for details.
+    """)
+
 def main():
     console = Console(theme=Theme(COLORFUL_THEME))
     console.print(f"[bold yellow]{ASCII_HEADER}[/]")
@@ -70,7 +79,7 @@ def main():
         padding=(1, 2)
     ))
 
-
+    show_license_info()
 
     while True:
         method = questionary.select(
