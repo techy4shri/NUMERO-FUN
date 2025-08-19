@@ -25,12 +25,23 @@ This project is a command-line interface (CLI) tool for calculating the numerolo
 
 ## Features
 
-- Calculate the numerology of a given name
+- Calculate the numerology of a given name using three different methods:
+  - Modern (Standard numerology 1-9)
+  - Chaldean (Ancient system 1-8)
+  - Pythagorean (Preserves master numbers 11, 22, 33)
+- Interactive method selection using arrow keys
 - User-friendly command-line interface with rich formatting
 - Supports both uppercase and lowercase input
-- Multiple calculation modes
+- Error handling and input validation
 
 ## Installation
+
+### Development Version
+```bash
+git clone https://github.com/techy4shri/Numero-Fun.git
+cd Numero-Fun
+pip install -e .
+```
 
 ### From PyPI (not done yet!!!)
 ```bash
@@ -46,14 +57,8 @@ pip install .
 
 ## Usage
 
-There are four ways to use this tool:
+There are three ways to use this tool:
 
-### Development Version
-```bash
-git clone https://github.com/techy4shri/Numero-Fun.git
-cd Numero-Fun
-pip install -e .
-```
 
 ### 1. Command Line Tool (Recommended)
 ```bash
@@ -71,19 +76,30 @@ from numero_fun import calculate_number
 
 result = calculate_number("shri")
 print(result)
+
+chaldean_result = calculate_number("john", method="chaldean")
+pythagorean_result = calculate_number("john", method="pythagorean")
 ```
 
 ### Example Output
 ```
 ╭──────────────────────────────────────────────────╮
-│               NUMERO-FUN CALCULATOR              │
+│           NUMERO-FUN CALCULATOR                  │
 ╰──────────────────────────────────────────────────╯
 
-Enter a name to calculate its numeral: john
+Choose numerology method:
+❯ Modern         - Standard numerology (1-9)
+  Chaldean       - Ancient system (1-8)
+  Pythagorean    - Preserves master numbers
+
+Enter a name to calculate its numeral: SHRI
 ╭──────────────────────────────────────────────────╮
-│ Name: garima                                     │
-│ Your Number: 4                                   │
+│ Name: SHRI                                       │
+│ Method: Standard numerology (1-9)                │
+│ Your Magical Number is: 9                        │
 ╰──────────────────────────────────────────────────╯
+
+Would you like to try another name? (y/n)
 ```
 
 ## Development
