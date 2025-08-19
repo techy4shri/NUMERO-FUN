@@ -1,8 +1,11 @@
 """
-Tests for the calculator module.
+Tests for the calculator module
 """
 
-from numero_fun.calculator import letter_to_number, get_sum, calculate_number
+from numero_fun.calculator import (
+    letter_to_number, letter_to_chaldean, letter_to_pythagorean,
+    get_sum, get_pythagorean_sum, calculate_number
+)
 
 def test_letter_to_number():
     assert letter_to_number('a') == 1
@@ -25,3 +28,11 @@ def test_calculate_number():
     assert calculate_number('doe') == 6   # d(4)+o(6)+e(5)=15 -> 1+5=6
     assert calculate_number('john doe') == 8
     assert calculate_number('JOHN') == 2  # Should work with uppercase too
+
+def test_chaldean_numerology():
+    assert calculate_number('john', 'chaldean') == 3  # j(1)+o(7)+h(5)+n(5)=18 -> 1+8=9 -> 9
+    assert calculate_number('doe', 'chaldean') == 4   # d(4)+o(7)+e(5)=16 -> 1+6=7
+
+def test_pythagorean_numerology():
+    assert calculate_number('anna', 'pythagorean') == 11  # Preserves master number
+    assert calculate_number('john', 'pythagorean') == 2   # j(1)+o(6)+h(8)+n(5)=20 -> 2+0=2

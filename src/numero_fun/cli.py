@@ -4,6 +4,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
 from rich.theme import Theme
+import questionary
 from .calculator import calculate_number
 
 
@@ -40,6 +41,10 @@ COLORFUL_THEME = {
     'exit': 'bold purple'
 }
 
+def is_valid_input(name):
+    """Checks if the input name is valid (non-empty and alphabetic)."""
+    return all(char.isalpha() or char.isspace() for char in name)
+
 def display_fancy_result(console, name, result):
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
     console.print(f"""
@@ -58,21 +63,37 @@ def main():
         padding=(1, 2)
     ))
 
-    while True:
-        name = Prompt.ask("\n[green] Enter a name to reveal its numerology[/]")
-        if not name:
-            break
+    method = questionary.select(
+        "\n[cyan] Choose numerology method[/]",
+        choices=[
+            "Modern         - Standard numerology (1-9)",
+            "Chaldean       - Ancient system (1-8)",
+            "Pythagorean    - Preserves master numbers aka 11,22,33"
+        ],
+        use_indicator=True,
+        use_shortcuts=True
+    ).ask()
 
-        result = calculate_number(name)
-        display_fancy_result(console, name, result)
+    method = method.split(" - ")[0].strip().lower()
+    while True:
+        name = Prompt.ask("\n[bold cyan] Enter a name to reveal its numerology[/]")
+        if not name:
+            raise KeyboardInterrupt
+        if not is_valid_input(name):
+            console.print("[bold red] Error: Please enter a valid input[/]")
+            continue
+
+        result = calculate_number(name, method)
+        display_fancy_result(console, name, result, method)
 
         response = Prompt.ask(
             "\n[italic] Would you like to try another name?[/]", 
-            choices=["y", "Y", "n", "N"], 
+            choices=["y", "Y", "yes", "Yes", "n", "N", "no", "No"],
+            show_choices=False,
             default="y"
         ).lower()
-        
-        if response in ["n", "no"]:
+
+        if response in ["n", "N", "no", "No"]:
             break
     
     console.print(f"\n[bold purple]{BORDER_LINE}[/]")
