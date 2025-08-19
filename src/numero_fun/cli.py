@@ -45,10 +45,17 @@ def is_valid_input(name):
     """Checks if the input name is valid (non-empty and alphabetic)."""
     return all(char.isalpha() or char.isspace() for char in name)
 
-def display_fancy_result(console, name, result):
+def display_fancy_result(console, name, result, method):
+    """Display the numerology result in pretty format."""
+    method_descriptions = {
+        "modern": "Standard numerology (1-9)",
+        "chaldean": "Ancient system (1-8)",
+        "pythagorean": "Preserves master numbers aka 11,22,33"
+    }
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
     console.print(f"""
          Name: {name}
+         Method: {method_descriptions.get(method.lower(), "Unknown Method")}
          Your Magical Number is: {result}
     """)
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
@@ -63,19 +70,21 @@ def main():
         padding=(1, 2)
     ))
 
-    method = questionary.select(
-        "\n[cyan] Choose numerology method[/]",
-        choices=[
-            "Modern         - Standard numerology (1-9)",
-            "Chaldean       - Ancient system (1-8)",
-            "Pythagorean    - Preserves master numbers aka 11,22,33"
-        ],
-        use_indicator=True,
-        use_shortcuts=True
-    ).ask()
 
-    method = method.split(" - ")[0].strip().lower()
+
     while True:
+        method = questionary.select(
+            "\n[cyan] Choose numerology method[/]",
+            choices=[
+                "Modern - Standard numerology (1-9)",
+                "Chaldean - Ancient system (1-8)",
+                "Pythagorean - Preserves master numbers aka 11,22,33"
+            ],
+            use_indicator=True,
+            use_shortcuts=True
+        ).ask()
+        method = method.split(" - ")[0].strip().lower()
+
         name = Prompt.ask("\n[bold cyan] Enter a name to reveal its numerology[/]")
         if not name:
             raise KeyboardInterrupt

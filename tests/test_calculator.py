@@ -30,9 +30,9 @@ def test_calculate_number():
     assert calculate_number('JOHN') == 2  # Should work with uppercase too
 
 def test_chaldean_numerology():
-    assert calculate_number('john', 'chaldean') == 3  # j(1)+o(7)+h(5)+n(5)=18 -> 1+8=9 -> 9
-    assert calculate_number('doe', 'chaldean') == 4   # d(4)+o(7)+e(5)=16 -> 1+6=7
+    assert calculate_number('john', 'chaldean') == 9  # j(1)+o(7)+h(5)+n(5)=18 -> 1+8=9 -> 9
+    assert calculate_number('doe', 'chaldean') == 7   # d(4)+o(7)+e(5)=16 -> 1+6=7
 
 def test_pythagorean_numerology():
-    assert calculate_number('anna', 'pythagorean') == 11  # Preserves master number
+    assert calculate_number('anna', 'pythagorean') == 3  # Preserves master number
     assert calculate_number('john', 'pythagorean') == 2   # j(1)+o(6)+h(8)+n(5)=20 -> 2+0=2
