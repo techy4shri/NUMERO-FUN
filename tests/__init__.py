@@ -1,3 +1,5 @@
+# flake8: noqa: E501
+
 """
 Test suite for numero-fun package.
 This package contains all tests for the numero-fun calculator functionality.

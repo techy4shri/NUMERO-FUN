@@ -22,6 +22,12 @@ dependencies = [
 ]
 requires-python = ">=3.10"
 
+[project.optional-dependencies]
+dev=[
+"pytest>=7.0.0",
+"black>=22.0.0",
+"flake8>=4.0.0",
+]
 [project.urls]
 Homepage = "https://github.com/techy4shri/Numero-Fun"
 Issues = "https://github.com/techy4shri/Numero-Fun/issues"

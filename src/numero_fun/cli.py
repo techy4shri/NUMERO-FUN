@@ -1,3 +1,4 @@
+# flake8: noqa: E501
 """Command-line interface for numero-fun
 
 Numero-Fun - A CLI tool for calculating numerology of names
@@ -16,7 +17,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-Contact: 
+Contact:
 - GitHub: https://github.com/techy4shri/Numero-Fun
 """
 
@@ -53,68 +54,139 @@ BORDER_LINE = "═════════════════════�
 SIDE_BORDER = "║"
 
 COLORFUL_THEME = {
-    'header': 'bold yellow',
-    'prompt': 'green',
-    'result': 'bold cyan',
-    'border': 'bright_green',
-    'accent': 'yellow',
-    'exit': 'bold purple'
+    "header": "bold yellow",
+    "prompt": "green",
+    "result": "bold cyan",
+    "border": "bright_green",
+    "accent": "yellow",
+    "exit": "bold purple",
 }
+
+
+def show_warranty(console):
+    """Display warranty information."""
+    warranty_text = (
+        "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.\n"
+        "EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER\n"
+        'PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER\n'
+        "EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES\n"
+        "OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS\n"
+        "TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM\n"
+        "PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR\n"
+        "CORRECTION."
+    )
+    console.print(
+        Panel.fit(
+            warranty_text,
+            title="Warranty Information",
+            border_style="red",
+            padding=(1, 2),
+        )
+    )
+
+
+def show_conditions(console):
+    """Display the GPL redistribution conditions"""
+    console.print(
+        Panel.fit(
+            "This program is free software: you can redistribute it and/or modify\n"
+            "it under the terms of the GNU General Public License as published by\n"
+            "the Free Software Foundation, either version 3 of the License, or\n"
+            "(at your option) any later version.\n"
+            "You should have received a copy of the GNU General Public License\n"
+            "along with this program. If not, see <https://www.gnu.org/licenses/>.\n"
+        )
+    )
+
 
 def is_valid_input(name):
     """Checks if the input name is valid (non-empty and alphabetic)."""
     return all(char.isalpha() or char.isspace() for char in name)
+
 
 def display_fancy_result(console, name, result, method):
     """Display the numerology result in pretty format."""
     method_descriptions = {
         "modern": "Standard numerology (1-9)",
         "chaldean": "Ancient system (1-8)",
-        "pythagorean": "Preserves master numbers aka 11,22,33"
+        "pythagorean": "Preserves master numbers aka 11,22,33",
     }
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
-    console.print(f"""
+    console.print(
+        f"""
          Name: {name}
          Method: {method_descriptions.get(method.lower(), "Unknown Method")}
          Your Magical Number is: {result}
-    """)
+    """
+    )
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
+
 
 def show_license_info(console):
     """Display simplified license information"""
-    console.print(Panel.fit(
-        "[yellow]Numero-Fun  Copyright (C) 2024  Garima Shrivastava[/]\n" +
-        "[cyan]This is free software, licensed under GNU GPL v3.[/]\n" +
-        "[cyan]See LICENSE file for details.[/]",
-        border_style="bright_green",
-        title="License Information",
-        padding=(1, 2)
-    ))
+    console.print(
+        Panel.fit(
+            "[yellow]Numero-Fun  Copyright (C) 2024  Garima Shrivastava[/]\n"
+            + "[cyan]This is free software, licensed under GNU GPL v3.[/]\n"
+            + "[cyan]See LICENSE file for details.[/]",
+            border_style="bright_green",
+            title="License Information",
+            padding=(1, 2),
+        )
+    )
+
 
 def main():
     console = Console(theme=Theme(COLORFUL_THEME))
     console.print(f"[bold yellow]{ASCII_HEADER}[/]")
-    
-    console.print(Panel.fit(
-        "[bold yellow] Your Mystical Numerology Calculator [/]",
-        border_style="bright_green",
-        padding=(1, 2)
-    ))
+
+    console.print(
+        Panel.fit(
+            "[bold yellow] Your Mystical Numerology Calculator [/]",
+            border_style="bright_green",
+            padding=(1, 2),
+        )
+    )
 
     show_license_info(console)
 
     while True:
-        method = questionary.select(
-            "\n[cyan] Choose numerology method[/]",
+
+        initial_choices = questionary.select(
+            "Welcome to Numero-Fun! Choose an option:",
             choices=[
-                "Modern - Standard numerology (1-9)",
-                "Chaldean - Ancient system (1-8)",
-                "Pythagorean - Preserves master numbers aka 11,22,33"
+                "Calculate Numerology",
+                "Show Warranty Information (show w)",
+                "Show License Conditions (show c)",
+                "Exit",
             ],
             use_indicator=True,
-            use_shortcuts=True
         ).ask()
-        method = method.split(" - ")[0].strip().lower()
+
+        if initial_choices == "Show Warranty Information (show w)":
+            show_warranty(console)
+            continue
+
+        if initial_choices == "Show License Conditions (show c)":
+            show_conditions(console)
+            continue
+
+        elif initial_choices == "Exit":
+            console.print("[bold purple] Exiting... [/]")
+            return
+
+        if initial_choices == "Calculate Numerology":
+            method = questionary.select(
+                "\n[cyan] Choose numerology method[/]",
+                choices=[
+                    "Modern - Standard numerology (1-9)",
+                    "Chaldean - Ancient system (1-8)",
+                    "Pythagorean - Preserves master numbers aka 11,22,33",
+                ],
+                use_indicator=True,
+                use_shortcuts=True,
+            ).ask()
+            method = method.split(" - ")[0].strip().lower()
 
         name = Prompt.ask("\n[bold cyan] Enter a name to reveal its numerology[/]")
         if not name:
@@ -127,18 +199,19 @@ def main():
         display_fancy_result(console, name, result, method)
 
         response = Prompt.ask(
-            "\n[italic] Would you like to try another name?[/]", 
+            "\n[italic] Would you like to try another name?[/]",
             choices=["y", "Y", "yes", "Yes", "n", "N", "no", "No"],
             show_choices=False,
-            default="y"
+            default="y",
         ).lower()
 
         if response in ["n", "N", "no", "No"]:
             break
-    
+
     console.print(f"\n[bold purple]{BORDER_LINE}[/]")
     console.print("[bold purple] Thanks for using Numero-Fun! [/]")
     console.print(f"[bold purple]{BORDER_LINE}[/]\n")
+
 
 if __name__ == "__main__":
     main()

@@ -5,6 +5,7 @@ using modular arithmetic for letter-to-number conversion
 This file is just for testing purposes. The old but starting point of this all
 """
 
+
 def letter_to_number(letter):
     """
     Convert letter to numerology number (1-9)
@@ -14,10 +15,11 @@ def letter_to_number(letter):
     """
     if not letter.isalpha():
         return 0
-    
-    number = ord(letter.lower()) - ord('a') + 1
+
+    number = ord(letter.lower()) - ord("a") + 1
     # Convert to 1-9 pattern using modulo
     return ((number - 1) % 9) + 1
+
 
 def get_sum(n):
     """
@@ -28,20 +30,22 @@ def get_sum(n):
         sum_i += int(digit)
     return sum_i
 
+
 def numero_uno(input_name):
     """
     Function for calculating the numerology of a name.
     Returns the final single digit number.
     """
     sum_total = 0
-    
+
     for char in input_name.lower():
         sum_total += letter_to_number(char)
-    
+
     while sum_total > 9:
         sum_total = get_sum(sum_total)
-        
+
     return sum_total
+
 
 # CLI DECORATION
 print("*" * 10, "\n", "*" * 10)
