@@ -1,6 +1,8 @@
 # README.md
 
 # Numerology CLI Tool
+[![PyPI version](https://badge.fury.io/py/numero-fun.svg)](https://pypi.org/project/numero-fun/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                     ███╗   ██╗██╗   ██╗███╗   ███╗███████╗██████╗  ██████╗ 
@@ -43,7 +45,7 @@ cd Numero-Fun
 pip install -e .
 ```
 
-### From PyPI
+### From PyPI (Recommended)
 ```bash
 pip install numero-fun
 ```
@@ -128,4 +130,4 @@ Contributions are welcome! Please feel free to:
 
 ## License
 
-This project is licensed under the GPL-3.0 Licence , more info in [LICENCE.md](https://github.com/techy4shri/NUMERO-FUN/blob/main/LICENSE)
+This project is licensed under the GPL-3.0 Licence. See [LICENCE.md](https://github.com/techy4shri/NUMERO-FUN/blob/main/LICENSE) for details
