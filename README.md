@@ -43,7 +43,7 @@ cd Numero-Fun
 pip install -e .
 ```
 
-### From PyPI (not done yet!!!)
+### From PyPI
 ```bash
 pip install numero-fun
 ```
