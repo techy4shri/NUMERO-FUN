@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "wheel>=0.37.0", "build>=0.7.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "numero-fun"
-version = "0.1.0"
+version = "0.1.1"
 description = "A CLI tool for calculating numerology of names"
 readme = "README.md"
 authors = [{ name = "Garima Shrivastava" }]
@@ -16,31 +16,24 @@ classifiers = [
     "Environment :: Console",
 ]
 keywords = ["numerology", "cli", "calculator"]
+requires-python = ">=3.8"
 dependencies = [
     "rich>=13.0.0",
     "questionary>=1.10.0",
 ]
-requires-python = ">=3.10"
 
 [project.optional-dependencies]
-dev=[
-"pytest>=7.0.0",
-"black>=22.0.0",
-"flake8>=4.0.0",
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "build>=0.7.0",
+    "twine>=4.0.0",
 ]
-[project.urls]
-Homepage = "https://github.com/techy4shri/Numero-Fun"
-Issues = "https://github.com/techy4shri/Numero-Fun/issues"
 
 [project.scripts]
 numero-fun = "numero_fun.cli:main"
 
-[tool.setuptools.packages.find]
-where = ["src"]
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test"]
-python_functions = ["test_*"]
-addopts = "-v -ra -q"
+[project.urls]
+Homepage = "https://github.com/techy4shri/Numero-Fun"
+Issues = "https://github.com/techy4shri/Numero-Fun/issues"

@@ -1,4 +1,0 @@
-rich>=13.0.0
-flake8>=4.0.0
-black>=22.0.0
-questionary>=1.0.0
