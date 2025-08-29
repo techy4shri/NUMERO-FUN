@@ -1,4 +1,24 @@
-"""Command-line interface for numero-fun"""
+"""Command-line interface for numero-fun
+
+Numero-Fun - A CLI tool for calculating numerology of names
+Copyright (C) 2024  Garima Shrivastava
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Contact: 
+- GitHub: https://github.com/techy4shri/Numero-Fun
+"""
 
 from rich.console import Console
 from rich.panel import Panel
@@ -60,14 +80,16 @@ def display_fancy_result(console, name, result, method):
     """)
     console.print(f"\n[yellow]{BORDER_LINE}[/]")
 
-def show_license_info():
-    """Display license information when starting in interactive mode"""
-    print("""
-Numero-Fun  Copyright (C) 2024  Garima Shrivastava
-This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
-This is free software, and you are welcome to redistribute it
-under certain conditions; type `show c' for details.
-    """)
+def show_license_info(console):
+    """Display simplified license information"""
+    console.print(Panel.fit(
+        "[yellow]Numero-Fun  Copyright (C) 2024  Garima Shrivastava[/]\n" +
+        "[cyan]This is free software, licensed under GNU GPL v3.[/]\n" +
+        "[cyan]See LICENSE file for details.[/]",
+        border_style="bright_green",
+        title="License Information",
+        padding=(1, 2)
+    ))
 
 def main():
     console = Console(theme=Theme(COLORFUL_THEME))
@@ -79,7 +101,7 @@ def main():
         padding=(1, 2)
     ))
 
-    show_license_info()
+    show_license_info(console)
 
     while True:
         method = questionary.select(
